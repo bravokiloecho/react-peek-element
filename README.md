@@ -26,7 +26,9 @@ or
 
 * **usePlaceHolder** - (optional) will create a statically positioned element to maintain the document flow while the element is absolutely positionined.
 
-* **zIndex** - (default: 4000) set the z-index on the outermost wrapper
+* **childStyle** - (default: {}) pass any props for the child element
+* **parentStyle** - (default: {}) pass any props for the parent element
+* **placeholderStyle** - (default: {}) pass any props for the placeholder element
 
 **Notes:**
 
