@@ -21,7 +21,12 @@ const PeekElement = function (props) {
   const containerRef = useRef()
   const childRef = useRef()
   const placeHolderRef = useRef()
-  const { usePlaceHolder, style } = props
+  const {
+    usePlaceHolder,
+    childStyle = {},
+    parentStyle = {},
+    placeholderStyle = {},
+  } = props
   
   let alreadyHandling
   let lastScrollPosition
@@ -119,9 +124,9 @@ const PeekElement = function (props) {
   }
   
   return (
-    <div style={PARENT_STYLE} ref={containerRef}>
-      <div style={{...CHILD_STYLE, ...style}} ref={childRef}>{props.children}</div>
-      {usePlaceHolder && <div ref={placeHolderRef} style={PLACEHOLDER_STYLE} />}
+    <div style={{...PARENT_STYLE, ...placeholderStyle}} ref={containerRef}>
+      <div style={{...CHILD_STYLE, ...childStyle}} ref={childRef}>{props.children}</div>
+      {usePlaceHolder && <div ref={placeHolderRef} style={{...PLACEHOLDER_STYLE, ...placeholderStyle}} />}
     </div>
   )
   
